@@ -1,3 +1,7 @@
-*
 !.gitignore
-!src/main/scala/forcomp/Anagrams.scala
+
+.idea/
+assignment.sbt
+build.sbt
+project/
+target/
