@@ -34,7 +34,14 @@ object Anagrams {
    *
    *  Note: you must use `groupBy` to implement this method!
    */
-  def wordOccurrences(w: Word): Occurrences = ???
+  def wordOccurrences(w: Word): Occurrences = {
+    val map = w.toLowerCase.groupBy(identity).map {
+      case (c: Char, r: String) => (c, r.length)
+      case _ => throw new Error("unexpected case")
+    }
+    map.toList.sortBy(_._1)
+  }
+
 
   /** Converts a sentence into its character occurrence list. */
   def sentenceOccurrences(s: Sentence): Occurrences = ???
