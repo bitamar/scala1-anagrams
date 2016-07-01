@@ -6,8 +6,10 @@ object Anagrams {
   /** A word is simply a `String`. */
   type Word = String
 
+
   /** A sentence is a `List` of words. */
   type Sentence = List[Word]
+
 
   /**
     * `Occurrences` is a `List` of pairs of characters and positive integers saying
@@ -23,11 +25,13 @@ object Anagrams {
     */
   type Occurrences = List[(Char, Int)]
 
+
   /**
     * The dictionary is simply a sequence of words.
     * It is predefined and obtained as a sequence using the utility method `loadDictionary`.
     */
   val dictionary: List[Word] = loadDictionary
+
 
   /**
     * Converts the word into its character occurrence list.
@@ -74,8 +78,10 @@ object Anagrams {
   lazy val dictionaryByOccurrences: Map[Occurrences, List[Word]] =
     dictionary.groupBy(word => wordOccurrences(word))
 
+
   /** Returns all the anagrams of a given word. */
-  def wordAnagrams(word: Word): List[Word] = ???
+  def wordAnagrams(word: Word): List[Word] = dictionaryByOccurrences getOrElse (wordOccurrences(word), List())
+
 
   /** Returns the list of all subsets of the occurrence list.
    *  This includes the occurrence itself, i.e. `List(('k', 1), ('o', 1))`
